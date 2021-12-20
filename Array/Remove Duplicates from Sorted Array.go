@@ -12,10 +12,10 @@ func removeDuplicateElement(number []int) []int {
 	return result
 }
 
-func RemoveDuplicates() {
-
-}
-
-func RemoveDuplicates(nums []int) int {
-
-}
+//func RemoveDuplicates() {
+//
+//}
+//
+//func RemoveDuplicates(nums []int) int {
+//
+//}
