@@ -26,20 +26,3 @@
 //链接：https://leetcode-cn.com/problems/concatenated-words
 //著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 package leetcode
-
-func Linkwords(strs []string) []string {
-	words := strs[0]
-	var linkwords []string
-	for i := 1; i < len(strs); i++ {
-		for j := 0; j < len(words); j++ {
-			if len(strs[i]) <= j || strs[i][j] != words[j] {
-				words = words[0:j]
-
-			}
-
-		}
-
-	}
-
-	return words
-}
