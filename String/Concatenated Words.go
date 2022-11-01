@@ -58,12 +58,14 @@ func (root *trie) dfs(vis []bool, word string) bool {
 	//只有尚未访问过的下标才需要进行搜索。
 
 	//这个就说明下标被访问过了，如何理解呢，比如c cat catcat，那么catcat这个单词的最后一位没有被访问过，可以下一步
-	//
+	//但是问题是，会出现这样的情况吗？
 	if vis[len(word)-1] {
 		return false
 	}
 
+	//标记这个下标被访问过
 	vis[len(word)-1] = true
+
 	node := root
 	for i, ch := range word {
 		node = node.children[ch-'a']

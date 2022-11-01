@@ -24,7 +24,7 @@ func main() {
 	//trie.Insert("app")
 	//fmt.Println(trie.Search("app"))
 
-	words := []string{"cat", "dog", "catdog"}
+	words := []string{"cat", "dog", "dogggg", "catdog"}
 	word := String.FindAllConcatenatedWordsInADict(words)
 	fmt.Println(word)
 
