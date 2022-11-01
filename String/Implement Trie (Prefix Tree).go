@@ -24,6 +24,7 @@ package String
 //这一题就是经典的 Trie 实现。本题的实现可以作为 Trie 的模板。
 
 //有人在children里面直接装链表，我感觉还是装一个map比较好
+//在一些变种当中，数据结构可以增加count记录当前单词结尾的单词数量，还可以记录以该处节点之前的字符串为前缀的单词数量
 
 type Trie struct {
 	isWord   bool           //是否是一个单词，或者说，是否是结尾
@@ -46,8 +47,8 @@ func (t *Trie) Insert(word string) {
 		} else {
 			//新建一个叶子指针，在这个叶子下继续检索
 			newChild := &Trie{children: make(map[rune]*Trie)}
-			parent.children[ch] = newChild //这是下一级的叶节点map的对应的是这个单词的下一级叶子
-			parent = newChild              //层层替换
+			parent.children[ch] = newChild
+			parent = newChild //层层替换
 		}
 	}
 	parent.isWord = true //到最后的末尾单词了，所以是一个单词，标记为true。
@@ -86,3 +87,50 @@ func (t *Trie) StartsWith(prefix string) bool {
  * param_2 := obj.Search(word);
  * param_3 := obj.StartsWith(prefix);
  */
+
+//这是另外一个官方的解法
+
+type Trie1 struct {
+	children [26]*Trie1
+	isEnd    bool
+}
+
+func Constructor() Trie1 {
+	return Trie1{}
+}
+
+func (t *Trie1) Insert1(word string) {
+	node := t
+	for _, ch := range word {
+		// -=是ch=ch-‘a’的意思，可以从acsii码那里获取到每个字母的顺序，比如a原本是97，减去a后，就成了0，就是吧char->int。
+		ch -= 'a'
+		if node.children[ch] == nil {
+			node.children[ch] = &Trie1{}
+		}
+		//这是下一级的叶节点map的对应的是这个单词的下一级叶子，
+		//而这个叶子又会变成自己的根，比如c这个位置原来是空的，现在创建了，之后，以c为自己的根建立下一个叶子节点
+		node = node.children[ch] //节点下移，沿着这个继续迭代
+	}
+	node.isEnd = true
+}
+
+func (t *Trie1) SearchPrefix1(prefix string) *Trie1 {
+	node := t
+	for _, ch := range prefix {
+		ch -= 'a'
+		if node.children[ch] == nil {
+			return nil
+		}
+		node = node.children[ch]
+	}
+	return node
+}
+
+func (t *Trie1) Search1(word string) bool {
+	node := t.SearchPrefix1(word)
+	return node != nil && node.isEnd
+}
+
+func (t *Trie1) StartsWith1(prefix string) bool {
+	return t.SearchPrefix1(prefix) != nil
+}

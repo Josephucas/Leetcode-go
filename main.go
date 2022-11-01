@@ -16,12 +16,16 @@ func main() {
 
 	//string
 	//strings := []string{"Trie", "insert", "search", "search", "startsWith", "insert", "search"}
-	trie := String.Constructor208()
-	trie.Insert("apple")
-	fmt.Println(trie.Search("apple"))
-	fmt.Println(trie.Search("app"))
-	fmt.Println(trie.StartsWith("app")) // 如果之前已经插入的字符串 word 的前缀之一为 prefix ，返回 true ；否则，返回 false
-	trie.Insert("app")
-	fmt.Println(trie.Search("app"))
+	//trie := String.Constructor208()
+	//trie.Insert("apple")
+	//fmt.Println(trie.Search("apple"))
+	//fmt.Println(trie.Search("app"))
+	//fmt.Println(trie.StartsWith("app")) // 如果之前已经插入的字符串 word 的前缀之一为 prefix ，返回 true ；否则，返回 false
+	//trie.Insert("app")
+	//fmt.Println(trie.Search("app"))
+
+	words := []string{"cat", "dog", "catdog"}
+	word := String.FindAllConcatenatedWordsInADict(words)
+	fmt.Println(word)
 
 }
