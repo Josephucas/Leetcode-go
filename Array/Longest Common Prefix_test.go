@@ -1,4 +1,4 @@
-package leetcode
+package Array
 
 import "testing"
 

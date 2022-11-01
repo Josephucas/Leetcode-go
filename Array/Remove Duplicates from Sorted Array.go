@@ -1,4 +1,4 @@
-package leetcode
+package Array
 
 func removeDuplicateElement(number []int) []int {
 	result := make([]int, 0, len(number))
@@ -11,5 +11,3 @@ func removeDuplicateElement(number []int) []int {
 	}
 	return result
 }
-
-

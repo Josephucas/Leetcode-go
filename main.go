@@ -1,10 +1,5 @@
 package main
 
-import (
-	String "Leetcode-go/String"
-	"fmt"
-)
-
 func main() {
 	//strs := []string{"flower", "flow", "flight"}
 	//var templateArray = []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
@@ -24,8 +19,12 @@ func main() {
 	//trie.Insert("app")
 	//fmt.Println(trie.Search("app"))
 
-	words := []string{"cat", "dog", "dogggg", "catdog"}
-	word := String.FindAllConcatenatedWordsInADict(words)
-	fmt.Println(word)
+	//words := []string{"cat", "dog", "dogggg", "catdog"}
+	//word := String.FindAllConcatenatedWordsInADict(words)
+	//fmt.Println(word)
+	//
+	//nums1 := []int{1, 2, 3, 4, 5, 16, 17}
+	//nums2 := []int{5, 6, 7, 8, 9, 10, 11, 12}
+	//fmt.Println(Array.FindMedianSortedArrays(nums2, nums1))
 
 }
