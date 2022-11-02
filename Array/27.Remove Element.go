@@ -44,6 +44,8 @@ package Array
 func removeElement(nums []int, val int) int {
 	left := 0
 	for _, v := range nums {
+		//在这里我一直不知道如果第一个就是要找的值该怎么办
+		//一看答案才知道，不是要找的值可以填充它，太棒了
 		if v != val {
 			nums[left] = v
 			left++
